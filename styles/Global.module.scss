@@ -1,0 +1,269 @@
+$main-color: rgb(38, 38, 38);
+$main-primarycolor: rgb(0, 255, 157);
+$main-secondarycolor: rgb(12, 174, 112);
+.navbar {
+  transition: 0.5s;
+  position: fixed;
+  height: 100%;
+  background-color: $main-color;
+  display: grid;
+  grid-template-columns: 80px;
+  grid-template-rows: 100px auto 100px;
+  -webkit-box-shadow: 5px 4px 12px 3px #1a1a1a;
+  box-shadow: 5px 4px 12px 3px rgb(26, 26, 26);
+  z-index: 999;
+  .roar {
+    position: fixed;
+    top: 40px;
+    left: 100px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(44, 44, 44);
+    transition: 1s;
+    animation-name: heart;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  img {
+    cursor: pointer;
+    margin-top: 10px;
+    width: 90px;
+    height: 95px;
+  }
+  .navbar_options {
+    color: $main-primarycolor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    svg {
+      cursor: pointer;
+      margin: 20px;
+      width: 40px;
+      height: 40px;
+      transition: 0.3s;
+    }
+    .select {
+      svg {
+        color: rgb(209, 209, 209);
+        margin: 30px;
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+.main {
+  color: white;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-rows: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 80px;
+  right: 0;
+  overflow-y: hidden;
+  background: rgb(31, 31, 31);
+  overflow-y: scroll;
+  z-index: 0;
+  transition: 0.5s;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  .title {
+    .heading {
+      font-size: 4vw;
+      font-weight: bolder;
+    }
+    margin: auto;
+    padding: 15%;
+    font-size: 20px;
+    color: white;
+    span {
+      color: $main-secondarycolor;
+      font-weight: bolder;
+    }
+    .buttonContainer {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+    }
+  }
+  button {
+    margin: 15px;
+  }
+  button:hover {
+    background: $main-secondarycolor;
+    transform: scale(1.2);
+  }
+  img {
+    border-radius: 15px;
+  }
+  .technologies {
+    font-size: 14px;
+    padding: 15px;
+    text-align: right;
+  }
+}
+
+.main.fullScreen {
+  left: 0;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 80px;
+  transition: 0.5s;
+}
+
+.contact.fullScreen {
+  transition: 0.5s;
+  left: 0;
+}
+
+@media only screen and (max-width: 1180px) {
+  .main {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    padding-bottom: 100px;
+
+    .title {
+      .heading {
+        font-size: 8vw;
+      }
+      .buttonContainer {
+        margin: auto;
+        margin-top: 20px;
+        width: 80%;
+        max-width: 400px;
+      }
+      padding: 10%;
+    }
+    .titleFirst {
+      padding-top: 30%;
+    }
+  }
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(0);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.about {
+  @extend .main;
+  button {
+    cursor: default;
+  }
+  .timelineContainer {
+    max-width: 600px;
+  }
+
+  .timelineDate {
+    font-size: 20px;
+    margin: 15px;
+  }
+
+  img {
+    padding: 30px;
+    width: 500px;
+  }
+
+  b {
+    font-size: 20px;
+  }
+
+  .socialNetworks {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    div {
+      svg {
+        height: 100px;
+        width: 100px;
+      }
+      transition: 0.5s;
+      color: rgb(47, 255, 141);
+      &:hover {
+        transition: 0.5s;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  padding: 2%;
+}
+
+@media only screen and (min-width: 1180px) {
+  .timelinesContainer {
+    overflow-y: auto;
+  }
+}
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-auto-rows: auto;
+  width: 100%;
+  justify-content: center;
+  button {
+    margin: 0;
+    width: 100%;
+    margin: 5px 0 5px 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .about {
+    .socialNetworks {
+      margin: unset;
+      padding: 15%;
+      div {
+        margin: auto;
+        svg {
+          height: auto;
+          width: 100%;
+        }
+        width: 70%;
+      }
+    }
+  }
+}
